@@ -1,7 +1,7 @@
 package main
 
 // Card for Card deck
-type Card struct {
+type card struct {
 	suit string
 	face string
 }

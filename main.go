@@ -10,7 +10,7 @@ func main() {
 	var cards []string
 	fmt.Println(cards)
 	deck := generateNewDeck()
-	fmt.Println(deck)
+	deck.print()
 	numberOfCards := 15
 	cards = getNewCards(deck, numberOfCards)
 	fmt.Println("Your cards are: ")
@@ -27,7 +27,7 @@ func getNewCards(deck []string, numberOfCards int) []string {
 	return cards
 }
 
-func generateNewDeck() []string {
+func generateNewDeck() deck {
 	var deck []string
 	cardValues := [13]string{"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"}
 	suits := [4]string{"Spades", "Clubs", "Diamonds", "Hearts"}
