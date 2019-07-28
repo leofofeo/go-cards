@@ -9,20 +9,20 @@ import (
 func main() {
 	var cards []string
 	deck := generateNewDeck()
-
 	numberOfCards := 9
-	fmt.Println("Number of cards: ", numberOfCards)
-	for i := 0; i < numberOfCards; i++ {
-		cards = append(cards, deck[i])
-	}
+	cards = getNewCards(deck, numberOfCards)
 	fmt.Println("Your cards are: ")
 	fmt.Println(cards)
 }
 
-func getNewCard(deck []string) string {
+func getNewCards(deck []string, numberOfCards int) []string {
+	var cards []string
 	rand.Seed(time.Now().Unix())
-	card := deck[rand.Intn(len(deck))]
-	return card
+	for i := 0; i < numberOfCards; i++ {
+		card := deck[rand.Intn(len(deck))]
+		cards = append(cards, card)
+	}
+	return cards
 }
 
 func generateNewDeck() []string {
