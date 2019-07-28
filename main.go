@@ -8,8 +8,10 @@ import (
 
 func main() {
 	var cards []string
+	fmt.Println(cards)
 	deck := generateNewDeck()
-	numberOfCards := 9
+	fmt.Println(deck)
+	numberOfCards := 15
 	cards = getNewCards(deck, numberOfCards)
 	fmt.Println("Your cards are: ")
 	fmt.Println(cards)
