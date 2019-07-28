@@ -1,17 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
+	var cards []string
 	deck := generateNewDeck()
-	fmt.Println(deck)
 
+	numberOfCards := 9
+	fmt.Println("Number of cards: ", numberOfCards)
+	for i := 0; i < numberOfCards; i++ {
+		cards = append(cards, deck[i])
+	}
+	fmt.Println("Your cards are: ")
+	fmt.Println(cards)
 }
 
-// func getNewCard() string {
-// 	deck := generateNewDeck()
-// 	fmt.Println(deck)
-// }
+func getNewCard(deck []string) string {
+	rand.Seed(time.Now().Unix())
+	card := deck[rand.Intn(len(deck))]
+	return card
+}
 
 func generateNewDeck() []string {
 	var deck []string
