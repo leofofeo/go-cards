@@ -9,6 +9,6 @@ func main() {
 	// hand.print()
 	// fmt.Println("Remaining cards are: ")
 	// remainingCards.print()
-	cards := generateNewDeck()
-	cards.saveToFile("my_cards")
+	cards := newDeckFromFile("my_cards")
+	cards.print()
 }
