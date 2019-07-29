@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strings"
 	"time"
 )
 
@@ -40,4 +41,8 @@ func dealRandom(d deck, handSize int) deck {
 		cards = append(cards, card)
 	}
 	return cards
+}
+
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",")
 }
