@@ -37,6 +37,7 @@ func deal(d deck, handSize int) (deck, deck) {
 
 func dealRandom(d deck, handSize int) deck {
 	var cards deck
+	// Using rand.Seed here as an alternative to rand.NewSource below
 	rand.Seed(time.Now().Unix())
 	for i := 0; i < handSize; i++ {
 		card := d[rand.Intn(len(d))]
@@ -64,8 +65,11 @@ func newDeckFromFile(filename string) deck {
 }
 
 func (d deck) shuffle() {
+	// Using rand.NewSource here as an alternative to rand.Seed above
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
 	for i := range d {
-		newPosition := rand.Intn(len(d) - 1)
+		newPosition := r.Intn(len(d) - 1)
 
 		d[i], d[newPosition] = d[newPosition], d[i]
 	}

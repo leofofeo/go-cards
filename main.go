@@ -10,5 +10,6 @@ func main() {
 	// fmt.Println("Remaining cards are: ")
 	// remainingCards.print()
 	cards := newDeckFromFile("my_cards")
+	cards.shuffle()
 	cards.print()
 }
